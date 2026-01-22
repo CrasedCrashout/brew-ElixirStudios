@@ -1,7 +1,3 @@
-# Welcome to GBA Emulator
+# Welcome to Elixir Studios' GBA Emulator!
 
-GBA Emulator is a free, online GBA emulator! I have 50+ Games to play!
-
-# GBA Emulator Website
-
-https://theclashman2.github.io/GBA-Emulator/
+We hope you enjoy over 50+ games! Found a bug? Feature request? Submit a ticket via the Support page!
