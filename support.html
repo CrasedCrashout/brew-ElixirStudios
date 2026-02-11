@@ -259,6 +259,7 @@
                 text-decoration: underline;
             }
         </style>
+        <link rel="stylesheet" href="user_css/corner_nav.css">
     </head>
     <body>
         <div class="container">
@@ -296,7 +297,16 @@
                             <option value="Graphics Issue">Graphics Issue</option>
                             <option value="Performance Problem">Performance Problem</option>
                             <option value="Feature Request">Feature Request</option>
+                            <option value="Game Request">Game Request</option>
                             <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="gameConsoleGroup" style="display: none;">
+                        <label for="gameConsole">Game Console</label>
+                        <select id="gameConsole" name="gameConsole">
+                            <option value="">Select</option>
+                            <option value="GameBoy Advance">GameBoy Advance</option>
                         </select>
                     </div>
 
@@ -313,7 +323,7 @@
                     <div class="button-group">
                         <button type="submit">Submit Ticket</button>
                         <button type="reset" class="button-secondary">Clear Form</button>
-                        <a href="index.html" style="padding: 12px 40px; border: 1px solid rgba(150, 100, 200, 0.6); border-radius: 5px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: all 0.3s ease;">Back to Home</a>
+                        <a href="brew.html" style="padding: 12px 40px; border: 1px solid rgba(150, 100, 200, 0.6); border-radius: 5px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: all 0.3s ease;">Back to Home</a>
                     </div>
                 </form>
             </div>
@@ -323,22 +333,22 @@
                 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">How do I save my progress?</div>
-                    <div class="faq-answer">Your game progress is automatically saved to your browser's local storage. The save data persists between sessions.</div>
+                    <div class="faq-answer">Unfortunately, games do not currently save. We are working on a backend fix to this. If your game does save after a session, then we guess that you got lucky! The best way to prevent save data loss is to not close out of the browser or tab.</div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">Which games are compatible?</div>
-                    <div class="faq-answer">All games in our library are tested and compatible with the emulator. You can find a full list on the home page organized by category.</div>
+                    <div class="faq-answer">All games in our library are tested and compatible with the emulator. You can find a full list on the emulator's home page organized by category.</div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">What should I do if a game won't load?</div>
-                    <div class="faq-answer">Try refreshing the page and selecting the game again. If the problem persists, please submit a support ticket with the game name and the error message you're seeing.</div>
+                    <div class="faq-answer">Try refreshing the page and selecting the game again. If the problem persists, please submit a support ticket with the game name, error code, and browser you're seeing/using.</div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">Is my data private?</div>
-                    <div class="faq-answer">Game saves are stored locally on your device. We don't collect or store personal data from your gameplay.</div>
+                    <div class="faq-answer">Play data is stored and disposed locally on your device. We don't collect or store personal data from your gameplay.</div>
                 </div>
 
                 <div class="faq-item">
@@ -349,8 +359,8 @@
             
 
             <footer>
-                <p>&copy; 2026 Elixir Studios | Game Boy Advance Emulator</p>
-                <p><a href="index.html">Home</a> | <a href="keybinds.html">Keybinds</a> | <a href="support.html">Support</a></p>
+                <p>&copy; 2026 Elixir Studios | Game Boy Advance and NES Emulator</p>
+                <p><a href="index.html">GBA</a> | <a href="nes.html">NES</a> | <a href="keybinds.html">Keybinds</a> | <a href="support.html">Support</a></p>ß
             </footer>
         </div>
 
@@ -360,6 +370,16 @@
                 answer.classList.toggle('active');
                 element.style.color = answer.classList.contains('active') ? '#64c8ff' : '#a8d8ff';
             }
+
+            // Toggle Game Console field visibility based on category
+            document.getElementById('category').addEventListener('change', function() {
+                const gameConsoleGroup = document.getElementById('gameConsoleGroup');
+                if (this.value === 'Game Request') {
+                    gameConsoleGroup.style.display = 'block';
+                } else {
+                    gameConsoleGroup.style.display = 'none';
+                }
+            });
 
             document.getElementById('supportForm').addEventListener('submit', function(e) {
                 const name = document.getElementById('name').value.trim();
@@ -394,5 +414,6 @@
                 }
             });
         </script>
+        <script src="user_scripts/corner_nav.js"></script>
     </body>
 </html>
